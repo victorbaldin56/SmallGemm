@@ -1,0 +1,10 @@
+{
+    "version": "0.5",
+    "requires": [
+        "openblas/0.3.27#29e844a5c715afe1d8e678b823731e02%1743515716.04",
+        "gtest/1.15.0#9eba70e54373fb7325151ad3375934a1%1743410805.366"
+    ],
+    "build_requires": [],
+    "python_requires": [],
+    "config_requires": []
+}
