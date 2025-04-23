@@ -17,29 +17,51 @@ constexpr unsigned kSeed = 0xdeadbeef;
 
 constexpr float kEpsilon = 1e-5;
 
-void matmulOpenblas(std::size_t m, std::size_t n, std::size_t k, const float* a,
-                    const float* b, float* c) noexcept {
-  cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, 1.0f, a, k, b,
-              n, 0.0f, c, n);
-}
+class MatmulTest : public testing::Test {
+ protected:
+  void SetUp() noexcept override {
+    std::mt19937_64 rng(kSeed);
+    std::uniform_real_distribution<float> dist(0, 1);
+    std::generate(std::begin(a_), std::end(a_), [&]() { return dist(rng); });
+    std::generate(std::begin(b_), std::end(b_), [&]() { return dist(rng); });
+    matmulOpenblas(kM, kN, kK, a_, b_, c_ref_);
+  }
+
+  auto isResultsEqual() const noexcept {
+    return std::equal(
+        std::begin(c_), std::end(c_), std::begin(c_ref_),
+        [](auto&& x, auto&& y) { return std::fabs(x - y) <= kEpsilon; });
+  }
+
+  static void matmulOpenblas(std::size_t m, std::size_t n, std::size_t k,
+                             const float* a, const float* b,
+                             float* c) noexcept {
+    cblas_sgemm(CblasRowMajor, CblasNoTrans, CblasNoTrans, m, n, k, 1.0f, a, k,
+                b, n, 0.0f, c, n);
+  }
+
+ protected:
+  alignas(64) float a_[kK * kM];
+  alignas(64) float b_[kN * kK];
+  alignas(64) float c_[kM * kN];
+  float c_ref_[kM * kN];
+};
+
 }  // namespace
 
-TEST(sgemm, matmulNaive) {
-  std::mt19937_64 rng(kSeed);
-  std::uniform_real_distribution<float> dist(0, 1);
+TEST_F(MatmulTest, matmulNaive) {
+  matmulNaive(kM, kN, kK, a_, b_, c_);
+  ASSERT_TRUE(isResultsEqual());
+}
 
-  float a[kK * kM];
-  float b[kN * kK];
-  float c[kM * kN];
-  float c_ref[kM * kN];
-  std::generate(std::begin(a), std::end(a), [&](){ return dist(rng); });
-  std::generate(std::begin(b), std::end(b), [&](){ return dist(rng); });
+TEST_F(MatmulTest, matmulAvx2) {
+  matmulAvx2(kM, kN, kK, a_, b_, c_);
+  ASSERT_TRUE(isResultsEqual());
+}
 
-  matmulNaive(kM, kN, kK, a, b, c);
-  matmulOpenblas(kM, kN, kK, a, b, c_ref);
-  ASSERT_TRUE(std::equal(
-      std::begin(c), std::end(c), std::begin(c_ref),
-      [](auto&& x, auto&& y) { return std::fabs(x - y) <= kEpsilon; }));
+TEST_F(MatmulTest, matmulAvx512) {
+  matmulAvx512(kM, kN, kK, a_, b_, c_);
+  ASSERT_TRUE(isResultsEqual());
 }
 
 int main(int argc, char** argv) {
