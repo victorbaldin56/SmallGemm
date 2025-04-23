@@ -10,6 +10,7 @@ CC=clang
 CXX=clang++
 
 [conf]
+tools.build:cflags=["-fsanitize=address,leak,undefined -march=native"]
 tools.build:cxxflags=["-fsanitize=address,leak,undefined"]
 tools.build:exelinkflags=["-fsanitize=address,leak,undefined"]
 tools.build:sharedlinkflags=["-fsanitize=address,leak,undefined"]

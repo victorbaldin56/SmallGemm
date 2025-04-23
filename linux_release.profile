@@ -8,3 +8,6 @@ build_type=Release
 [buildenv]
 CC=clang
 CXX=clang++
+
+[conf]
+tools.build:cxxflags=["-march=native"]
