@@ -1,6 +1,7 @@
 [test_requires]
 gtest/1.15.0
 benchmark/1.9.1
+llvm-openmp/18.1.8
 
 [generators]
 CMakeDeps

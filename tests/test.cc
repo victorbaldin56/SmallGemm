@@ -59,8 +59,18 @@ TEST_F(MatmulTest, matmulAvx2) {
   ASSERT_TRUE(isResultsEqual());
 }
 
+TEST_F(MatmulTest, matmulAvx2Parallel) {
+  matmulAvx2Parallel(kM, kN, kK, a_, b_, c_);
+  ASSERT_TRUE(isResultsEqual());
+}
+
 TEST_F(MatmulTest, matmulAvx512) {
   matmulAvx512(kM, kN, kK, a_, b_, c_);
+  ASSERT_TRUE(isResultsEqual());
+}
+
+TEST_F(MatmulTest, matmulAvx512Parallel) {
+  matmulAvx512Parallel(kM, kN, kK, a_, b_, c_);
   ASSERT_TRUE(isResultsEqual());
 }
 

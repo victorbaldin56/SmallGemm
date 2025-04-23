@@ -56,8 +56,16 @@ BENCHMARK_F(MatmulBenchmark, AVX2)(benchmark::State& state) {
   measureMatmul<matmulAvx2>(state);
 }
 
+BENCHMARK_F(MatmulBenchmark, AVX2Parallel)(benchmark::State& state) {
+  measureMatmul<matmulAvx2Parallel>(state);
+}
+
 BENCHMARK_F(MatmulBenchmark, AVX512)(benchmark::State& state) {
   measureMatmul<matmulAvx512>(state);
+}
+
+BENCHMARK_F(MatmulBenchmark, AVX512Parallel)(benchmark::State& state) {
+  measureMatmul<matmulAvx512Parallel>(state);
 }
 
 BENCHMARK_F(MatmulBenchmark, OpenBLAS)(benchmark::State& state) {
