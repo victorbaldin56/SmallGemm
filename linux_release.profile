@@ -10,4 +10,4 @@ CC=clang
 CXX=clang++
 
 [conf]
-tools.build:cxxflags=["-march=native"]
+tools.build:cflags=["-march=native"]

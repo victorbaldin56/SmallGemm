@@ -1,5 +1,6 @@
 [test_requires]
 gtest/1.15.0
+benchmark/1.9.1
 
 [generators]
 CMakeDeps

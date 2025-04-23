@@ -1,0 +1,59 @@
+2025-04-23T20:16:28+00:00
+Running ./bench/bench
+Run on (12 X 4400 MHz CPU s)
+CPU Caches:
+  L1 Data 48 KiB (x6)
+  L1 Instruction 32 KiB (x6)
+  L2 Unified 512 KiB (x6)
+  L3 Unified 12288 KiB (x1)
+Load Average: 0.40, 0.43, 0.72
+***WARNING*** CPU scaling is enabled, the benchmark real time measurements may be noisy and will incur extra overhead.
+name,iterations,real_time,cpu_time,time_unit,bytes_per_second,items_per_second,label,error_occurred,error_message,"cpu cycles"
+"MatmulBenchmark/Naive",0,1.97902e+14,6.10838e+06,ns,,,,,,2.47827e+09
+"MatmulBenchmark/Naive",0,1.97903e+14,9.62088e+08,ns,,,,,,2.4981e+09
+"MatmulBenchmark/Naive",0,1.97904e+14,1.92551e+09,ns,,,,,,2.47761e+09
+"MatmulBenchmark/Naive",0,1.97905e+14,2.88111e+09,ns,,,,,,2.47605e+09
+"MatmulBenchmark/Naive",0,1.97906e+14,3.83619e+09,ns,,,,,,2.47776e+09
+"MatmulBenchmark/Naive",0,1.97907e+14,4.79186e+09,ns,,,,,,2.49575e+09
+"MatmulBenchmark/Naive",0,1.97908e+14,5.75423e+09,ns,,,,,,2.47696e+09
+"MatmulBenchmark/Naive",0,1.97909e+14,6.70975e+09,ns,,,,,,2.47623e+09
+"MatmulBenchmark/Naive_mean",8,inf,inf,ns,,,,,,2.48209e+09
+"MatmulBenchmark/Naive_median",8,inf,inf,ns,,,,,,2.47769e+09
+"MatmulBenchmark/Naive_stddev",8,inf,inf,ns,,,,,,9.20735e+06
+"MatmulBenchmark/Naive_cv",8,1.18634e-05,0.698464,,,,,,,0.00370951
+"MatmulBenchmark/AVX2",0,1.9791e+14,7.66484e+09,ns,,,,,,1.76834e+08
+"MatmulBenchmark/AVX2",0,1.9791e+14,7.73365e+09,ns,,,,,,1.77495e+08
+"MatmulBenchmark/AVX2",0,1.9791e+14,7.80251e+09,ns,,,,,,1.7679e+08
+"MatmulBenchmark/AVX2",0,1.9791e+14,7.8713e+09,ns,,,,,,1.76811e+08
+"MatmulBenchmark/AVX2",0,1.9791e+14,7.9401e+09,ns,,,,,,1.76677e+08
+"MatmulBenchmark/AVX2",0,1.9791e+14,8.00884e+09,ns,,,,,,1.76702e+08
+"MatmulBenchmark/AVX2",0,1.9791e+14,8.07759e+09,ns,,,,,,1.7672e+08
+"MatmulBenchmark/AVX2",0,1.9791e+14,8.14635e+09,ns,,,,,,1.76709e+08
+"MatmulBenchmark/AVX2_mean",8,inf,inf,ns,,,,,,1.76842e+08
+"MatmulBenchmark/AVX2_median",8,inf,inf,ns,,,,,,1.76755e+08
+"MatmulBenchmark/AVX2_stddev",8,inf,inf,ns,,,,,,269660
+"MatmulBenchmark/AVX2_cv",8,8.52279e-07,0.0213126,,,,,,,0.00152486
+"MatmulBenchmark/AVX512",0,1.9791e+14,8.21518e+09,ns,,,,,,9.14423e+07
+"MatmulBenchmark/AVX512",0,1.9791e+14,8.25107e+09,ns,,,,,,9.10359e+07
+"MatmulBenchmark/AVX512",0,1.9791e+14,8.28681e+09,ns,,,,,,9.10997e+07
+"MatmulBenchmark/AVX512",0,1.97911e+14,8.32258e+09,ns,,,,,,9.10859e+07
+"MatmulBenchmark/AVX512",0,1.97911e+14,8.35834e+09,ns,,,,,,9.0955e+07
+"MatmulBenchmark/AVX512",0,1.97911e+14,8.39405e+09,ns,,,,,,9.11605e+07
+"MatmulBenchmark/AVX512",0,1.97911e+14,8.42983e+09,ns,,,,,,9.10986e+07
+"MatmulBenchmark/AVX512",0,1.97911e+14,8.46559e+09,ns,,,,,,9.09884e+07
+"MatmulBenchmark/AVX512_mean",8,inf,inf,ns,,,,,,9.11083e+07
+"MatmulBenchmark/AVX512_median",8,inf,inf,ns,,,,,,9.10922e+07
+"MatmulBenchmark/AVX512_stddev",8,inf,inf,ns,,,,,,150280
+"MatmulBenchmark/AVX512_cv",8,4.43105e-07,0.0105034,,,,,,,0.00164947
+"MatmulBenchmark/OpenBLAS",0,1.97911e+14,8.50142e+09,ns,,,,,,5.04493e+07
+"MatmulBenchmark/OpenBLAS",0,1.97911e+14,8.52151e+09,ns,,,,,,5.03567e+07
+"MatmulBenchmark/OpenBLAS",0,1.97911e+14,8.54155e+09,ns,,,,,,5.03298e+07
+"MatmulBenchmark/OpenBLAS",0,1.97911e+14,8.5616e+09,ns,,,,,,5.03343e+07
+"MatmulBenchmark/OpenBLAS",0,1.97911e+14,8.58165e+09,ns,,,,,,5.03554e+07
+"MatmulBenchmark/OpenBLAS",0,1.97911e+14,8.6017e+09,ns,,,,,,5.03352e+07
+"MatmulBenchmark/OpenBLAS",0,1.97911e+14,8.62174e+09,ns,,,,,,5.03508e+07
+"MatmulBenchmark/OpenBLAS",0,1.97911e+14,8.64179e+09,ns,,,,,,5.03515e+07
+"MatmulBenchmark/OpenBLAS_mean",8,inf,inf,ns,,,,,,5.03579e+07
+"MatmulBenchmark/OpenBLAS_median",8,inf,inf,ns,,,,,,5.03511e+07
+"MatmulBenchmark/OpenBLAS_stddev",8,inf,inf,ns,,,,,,38407.7
+"MatmulBenchmark/OpenBLAS_cv",8,2.48768e-07,0.00572993,,,,,,,0.000762696
