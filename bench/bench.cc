@@ -8,9 +8,9 @@
 
 namespace {
 
-constexpr std::size_t kM = 0x10;
+constexpr std::size_t kM = 0x20;
 constexpr std::size_t kN = 0x20;
-constexpr std::size_t kK = 0x100;
+constexpr std::size_t kK = 0x10;
 
 constexpr unsigned kSeed = 0xdeadbeef;
 
@@ -28,7 +28,7 @@ class MatmulBenchmark : public benchmark::Fixture {
   auto measureMatmul(benchmark::State& state) {
     state.PauseTiming();
     auto start = __rdtsc();
-    for (auto i = 0; i < 10000; ++i) {
+    for (auto i = 0; i < 100000; ++i) {
       matmul_func(kM, kN, kK, a_, b_, c_);
     }
     state.counters["cpu cycles"] = __rdtsc() - start;
