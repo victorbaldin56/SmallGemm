@@ -114,6 +114,8 @@ void matmulAvx2(size_t m, size_t n, size_t k, const float* __restrict__ a,
 блоков $16\times8$:
 
 ```cpp
+#define BLOCK_STRIDE_AVX512 8
+
 static void matmulAvx512Kernel(size_t m, size_t n, size_t k,
                                const float* __restrict__ a,
                                const float* __restrict__ b,
