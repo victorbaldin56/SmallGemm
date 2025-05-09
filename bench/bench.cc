@@ -108,9 +108,10 @@ class MatmulBenchmark : public benchmark::Fixture {
       ->Args({0x40, 0x40, 0x20})                                        \
       ->Args({0x40, 0x40, 0x40});
 
-REGISTER_MATMUL_BENCHMARK(Naive, matmulNaive);
-REGISTER_MATMUL_BENCHMARK(AVX2, matmulAvx2);
-REGISTER_MATMUL_BENCHMARK(AVX512, matmulAvx512);
+REGISTER_MATMUL_BENCHMARK(1x1, matmul1x1);
+REGISTER_MATMUL_BENCHMARK(8x8, matmul8x8);
+REGISTER_MATMUL_BENCHMARK(16x8, matmul16x8);
+REGISTER_MATMUL_BENCHMARK(16x16, matmul16x16);
 REGISTER_MATMUL_BENCHMARK(OpenBLAS, matmulOpenblas);
 
 BENCHMARK_MAIN();

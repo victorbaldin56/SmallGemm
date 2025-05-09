@@ -49,18 +49,23 @@ class MatmulTest : public testing::Test {
 
 }  // namespace
 
-TEST_F(MatmulTest, matmulNaive) {
-  matmulNaive(kM, kN, kK, a_, b_, c_);
+TEST_F(MatmulTest, matmul1x1) {
+  matmul1x1(kM, kN, kK, a_, b_, c_);
   ASSERT_TRUE(isResultsEqual());
 }
 
-TEST_F(MatmulTest, matmulAvx2) {
-  matmulAvx2(kM, kN, kK, a_, b_, c_);
+TEST_F(MatmulTest, matmul8x8) {
+  matmul8x8(kM, kN, kK, a_, b_, c_);
   ASSERT_TRUE(isResultsEqual());
 }
 
-TEST_F(MatmulTest, matmulAvx512) {
-  matmulAvx512(kM, kN, kK, a_, b_, c_);
+TEST_F(MatmulTest, matmul16x8) {
+  matmul16x8(kM, kN, kK, a_, b_, c_);
+  ASSERT_TRUE(isResultsEqual());
+}
+
+TEST_F(MatmulTest, matmul16x16) {
+  matmul16x16(kM, kN, kK, a_, b_, c_);
   ASSERT_TRUE(isResultsEqual());
 }
 
